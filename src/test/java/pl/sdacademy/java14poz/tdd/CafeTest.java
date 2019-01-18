@@ -1,3 +1,5 @@
+package pl.sdacademy.java14poz.tdd;
+
 import org.junit.Before;
 import org.junit.Test;
 
