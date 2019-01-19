@@ -68,4 +68,26 @@ public class CalculatorTest {
         String resultDisplay = calc.display();
         assertTrue(resultDisplay.isEmpty());
     }
+
+    @Test
+    public void shouldDisplay7WhenAdd3And4(){
+
+        //when
+        calc.add(3,4);
+
+        //then
+        String resultDisplay = calc.display();
+        assertEquals("7",resultDisplay);
+    }
+
+    @Test
+    public void shouldDisplay2WhenSub6And4(){
+
+        //when
+        calc.sub(6,4);
+
+        //then
+        String resultDisplay = calc.display();
+        assertEquals("2",resultDisplay);
+    }
 }

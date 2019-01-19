@@ -20,6 +20,20 @@ public interface Calculator {
      */
     public String display();
 
+    /**
+     * Metoda dodaje numberA do numberB
+     * @param numberA pierwsza liczba
+     * @param numberB druga liczba
+     */
+    public void add(int numberA, int numberB);
+
+    /**
+     * Metoda odejmuje numberA od numberB
+     * @param numberA pierwsza liczba
+     * @param numberB druga liczba
+     */
+    public void sub(int numberA, int numberB);
+
 
     /**
      * Dodawanie
