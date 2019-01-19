@@ -34,6 +34,11 @@ public interface Calculator {
      */
     public void sub(int numberA, int numberB);
 
+    /**
+     * Zerowanie wyswietlacza
+     */
+    void clear();
+
 
     /**
      * Dodawanie

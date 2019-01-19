@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.*;
  **/
 public class CalculatorTest {
 
-    Calculator calc ;
+    Calculator calc;
 
     @Before
     public void before() {
@@ -44,13 +44,13 @@ public class CalculatorTest {
         String resultDisplay = calc.display();
         String expectedDisplay = "0";
 
-        System.out.println("resultDisplay: "+resultDisplay);
+        System.out.println("resultDisplay: " + resultDisplay);
         assertTrue(expectedDisplay.equals(resultDisplay));
-        assertEquals(resultDisplay,expectedDisplay);
+        assertEquals(resultDisplay, expectedDisplay);
     }
 
     @Test
-    public void shouldDisplayNumber(){
+    public void shouldDisplayNumber() {
         //when
         calc.pressNumber(0);
 
@@ -61,7 +61,7 @@ public class CalculatorTest {
     }
 
     @Test
-    public void shouldNotDisplayNumber(){
+    public void shouldNotDisplayNumber() {
         //when
 
         //then
@@ -70,24 +70,60 @@ public class CalculatorTest {
     }
 
     @Test
-    public void shouldDisplay7WhenAdd3And4(){
+    public void shouldDisplay7WhenAdd3And4() {
 
         //when
-        calc.add(3,4);
+        calc.add(3, 4);
 
         //then
         String resultDisplay = calc.display();
-        assertEquals("7",resultDisplay);
+        assertEquals("7", resultDisplay);
     }
 
     @Test
-    public void shouldDisplay2WhenSub6And4(){
+    public void shouldDisplay2WhenSub6And4() {
 
         //when
-        calc.sub(6,4);
+        calc.sub(6, 4);
 
         //then
         String resultDisplay = calc.display();
-        assertEquals("2",resultDisplay);
+        assertEquals("2", resultDisplay);
+    }
+
+    @Test
+    public void shouldDisplay2WhenSub8And4() {
+
+        //when
+        calc.sub(8, 4);
+
+        //then
+        String resultDisplay = calc.display();
+        assertEquals("4", resultDisplay);
+    }
+
+    @Test
+    public void shouldAddSuccessedExecute() {
+        // 5 przykladow dodawania
+        calc.add(8, 4);
+        assertEquals("12", calc.display());
+        calc.clear();
+
+        calc.add(6, 1);
+        assertEquals("7", calc.display());
+        calc.clear();
+
+        calc.add(2, 4);
+        assertEquals("6", calc.display());
+        calc.clear();
+
+        calc.add(6, 4);
+        assertEquals("10", calc.display());
+        calc.clear();
+
+        calc.add(8, 2);
+        assertEquals("10", calc.display());
+
+
     }
 }

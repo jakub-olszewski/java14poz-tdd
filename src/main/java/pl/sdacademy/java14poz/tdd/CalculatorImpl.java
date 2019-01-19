@@ -20,7 +20,7 @@ public class CalculatorImpl implements Calculator {
 
     //konstruktor inicjalizuje stan wyswietalacza - pusty
     public CalculatorImpl() {
-        display = "";
+        clear();
     }
 
     @Override
@@ -38,5 +38,10 @@ public class CalculatorImpl implements Calculator {
     @Override
     public void sub(int numberA, int numberB) {
         pressNumber(numberA-numberB);
+    }
+
+    @Override
+    public void clear() {
+        display="";
     }
 }
