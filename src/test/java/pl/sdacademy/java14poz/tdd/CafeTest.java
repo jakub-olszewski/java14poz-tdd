@@ -14,12 +14,14 @@ public class CafeTest {
 
     @Before
     public void before(){
-        // given
-        cafe = new Cafe();
+
     }
 
     @Test
     public void shouldServeCoffee() {
+
+        // given
+        cafe = new Cafe();
 
         // when
         cafe.serveCoffee();
@@ -30,6 +32,9 @@ public class CafeTest {
 
     @Test
     public void shouldNotServeCoffee() {
+
+        // given
+        cafe = new Cafe();
 
         // when
         //cafe.serveCoffee();

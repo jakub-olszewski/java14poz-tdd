@@ -7,10 +7,19 @@ package pl.sdacademy.java14poz.tdd;
  **/
 public class Cafe {
 
+    boolean isServe;
+    int cena;
+
+    public Cafe() {
+        this.isServe = false;
+        this.cena = 5;
+    }
+
     public void serveCoffee() {
+        isServe = true;
     }
 
     public boolean canServeCoffee() {
-        return false;
+        return isServe;
     }
 }
