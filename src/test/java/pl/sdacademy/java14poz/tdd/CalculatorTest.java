@@ -140,11 +140,16 @@ public class CalculatorTest {
 
         try {
             calc.div(100, 0);
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             assertTrue(e instanceof IllegalArgumentException);
             assertTrue(e.getMessage().equals("Nie dziel przez zero"));
         }
+
+    }
+
+
+    @Test
+    public void shouldHaveExceptionWhenDevideByZeroRule() {
 
     }
 }
