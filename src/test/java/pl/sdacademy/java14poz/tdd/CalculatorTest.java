@@ -129,9 +129,22 @@ public class CalculatorTest {
 
     }
 
-    @Test( expected = IllegalArgumentException.class)
+    //test ogólny czy występuje wyjątek
+    @Test(expected = IllegalArgumentException.class)
     public void shouldHaveExceptionWhenDevideByZero() {
-        //... implementacja wywołanie div()
-        calc.div(100,0);
+        calc.div(100, 0);
+    }
+
+    @Test
+    public void shouldHaveExceptionWhenDevideByZeroAssert() {
+
+        try {
+            calc.div(100, 0);
+        }
+        catch (Exception e){
+            assertTrue(e instanceof IllegalArgumentException);
+            assertTrue(e.getMessage().equals("Nie dziel przez zero"));
+        }
+
     }
 }

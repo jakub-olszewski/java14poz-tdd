@@ -44,10 +44,22 @@ public class CalculatorImpl implements Calculator {
     public void div(int numberA, int numberB) throws IllegalArgumentException{
         // implementacje zrzucanie wyjatku IllegalArgumentException
         // podczas dzielenia przez zero
+        if(numberB==0){
+            throw new IllegalArgumentException("Nie dziel przez zero");
+        }else
+        {
+            pressNumber(numberA / numberB);
+        }
+
     }
 
     @Override
     public void clear() {
         display="";
+    }
+
+    @Override
+    public void multi(int numberA, int numberB) {
+        pressNumber(numberA*numberB);
     }
 }
