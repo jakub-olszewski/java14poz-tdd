@@ -1,12 +1,15 @@
 package pl.sdacademy.java14poz.tdd;
 
+import org.hamcrest.junit.ExpectedException;
 import org.junit.Before;
 import org.junit.Ignore;
+import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static pl.sdacademy.java14poz.tdd.CalculatorImpl.DIV_ERROR_MESSAGE;
 
 /**
  * CalculatorTest
@@ -142,14 +145,19 @@ public class CalculatorTest {
             calc.div(100, 0);
         } catch (Exception e) {
             assertTrue(e instanceof IllegalArgumentException);
-            assertTrue(e.getMessage().equals("Nie dziel przez zero"));
+            assertTrue(e.getMessage().equals(DIV_ERROR_MESSAGE));
         }
 
     }
 
+    // testowanie wyjątku przez użycie reguły
+    @Rule
+    public ExpectedException expectedException = ExpectedException.none();
 
     @Test
     public void shouldHaveExceptionWhenDevideByZeroRule() {
-
+        expectedException.expect(IllegalArgumentException.class);
+        expectedException.expectMessage(DIV_ERROR_MESSAGE);
+        calc.div(100, 0);
     }
 }
