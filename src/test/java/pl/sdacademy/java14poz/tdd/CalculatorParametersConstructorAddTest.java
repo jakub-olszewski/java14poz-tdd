@@ -17,13 +17,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * @date: 19.01.2019 12:52
  **/
 @RunWith(value = Parameterized.class)
-public class CalculatorParametersConstructorTest {
+public class CalculatorParametersConstructorAddTest {
 
     int numberA;
     int numberB;
     String expectedResult;
 
-    public CalculatorParametersConstructorTest(int numberA, int numberB, String expectedResult) {
+    public CalculatorParametersConstructorAddTest(int numberA, int numberB, String expectedResult) {
         this.numberA = numberA;
         this.numberB = numberB;
         this.expectedResult = expectedResult;

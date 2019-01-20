@@ -1,5 +1,7 @@
 package pl.sdacademy.java14poz.tdd.matchers;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -19,6 +21,17 @@ public class Person {
 
     public void setBirthdayDate(Date birthdayDate) {
         this.birthdayDate = birthdayDate;
+    }
+
+    public void setBirthdayDate(String birthdayDateString) {
+
+        try {
+            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+            Date birthdayDate = formatter.parse(birthdayDateString);
+            setBirthdayDate(birthdayDate);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
     }
 
     Date birthdayDate;
@@ -49,6 +62,7 @@ public class Person {
     public void setAge(int age) {
         this.age = age;
     }
+
 
     public Person(String name, int age) {
         this.name = name;

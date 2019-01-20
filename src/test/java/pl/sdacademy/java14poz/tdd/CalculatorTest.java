@@ -8,6 +8,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 import static pl.sdacademy.java14poz.tdd.CalculatorImpl.DIV_ERROR_MESSAGE;
 
@@ -28,15 +29,21 @@ public class CalculatorTest {
     }
 
     @Test
-    public void pressNumber5Test() {
+    public void pressNumber543Test() {
 
         //when
         calc.pressNumber(5);
+        calc.pressNumber(4);
+        calc.pressNumber(3);
 
         //then
         String resultDisplay = calc.display();
-        String expectedDisplay = "5";
+        String expectedDisplay = "543";
         assertTrue(resultDisplay.equals(expectedDisplay));
+        assertThat(resultDisplay).isEqualTo(expectedDisplay)
+                .isNotEmpty()
+                .startsWith("5")
+                .endsWith("3");
     }
 
     @Test
@@ -104,7 +111,19 @@ public class CalculatorTest {
 
         //then
         String resultDisplay = calc.display();
+
+        // użycie JUnit
         assertEquals("4", resultDisplay);
+        assertFalse(resultDisplay.isEmpty());
+        assertNotNull(resultDisplay);
+
+        // użycie AssertJ
+        assertThat(resultDisplay)
+                .isEqualTo("4")
+                .isNotEmpty()
+                .isNotNull()
+        ;
+
     }
 
 
@@ -164,5 +183,8 @@ public class CalculatorTest {
     @Test
     public void shouldHaveExceptionWhenPressNumberHaveNull(){
         calc.pressNumber(null);
+        calc.pressNumber(5);
+        System.out.println(calc.display());
+        //assercja na display
     }
 }
