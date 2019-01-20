@@ -3,6 +3,8 @@ package pl.sdacademy.java14poz.tdd;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.JUnit4;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -102,6 +104,7 @@ public class CalculatorTest {
         assertEquals("4", resultDisplay);
     }
 
+
     @Test
     public void shouldAddSuccessedExecute() {
         // 5 przykladow dodawania
@@ -124,6 +127,11 @@ public class CalculatorTest {
         calc.add(8, 2);
         assertEquals("10", calc.display());
 
+    }
 
+    @Test( expected = IllegalArgumentException.class)
+    public void shouldHaveExceptionWhenDevideByZero() {
+        //... implementacja wywołanie div()
+        calc.div(100,0);
     }
 }

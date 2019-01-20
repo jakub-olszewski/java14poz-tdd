@@ -41,6 +41,12 @@ public class CalculatorImpl implements Calculator {
     }
 
     @Override
+    public void div(int numberA, int numberB) throws IllegalArgumentException{
+        // implementacje zrzucanie wyjatku IllegalArgumentException
+        // podczas dzielenia przez zero
+    }
+
+    @Override
     public void clear() {
         display="";
     }

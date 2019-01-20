@@ -35,6 +35,15 @@ public interface Calculator {
     public void sub(int numberA, int numberB);
 
     /**
+     * Metoda dzieli numberA przez numberB
+     * @param numberA pierwsza liczba
+     * @param numberB druga liczba
+     * @throws IllegalArgumentException podczas dzielenia przez zero
+     */
+    public void div(int numberA, int numberB) throws IllegalArgumentException;
+
+
+    /**
      * Zerowanie wyswietlacza
      */
     void clear();
