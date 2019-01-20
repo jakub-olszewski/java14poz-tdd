@@ -1,18 +1,19 @@
 package pl.sdacademy.java14poz.tdd.mockowanie;
 
+import javafx.beans.binding.When;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
+import pl.sdacademy.java14poz.tdd.Calculator;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.anyString;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.*;
 
 /**
  * MockitoAnnotationMockTest
@@ -50,7 +51,7 @@ public class MockitoAnnotationMockTest {
     public void whenUseMockAnnotationOnlyInTest(){
         //stworzyc atrape widoczna tylko w tym tescie
         // zdefiniowanie atrapy ArrayList
-        List onlyHereMockList = Mockito.mock(ArrayList.class);
+        List onlyHereMockList = mock(ArrayList.class);
 
         onlyHereMockList.add("one");
         verify(onlyHereMockList).add("one");
@@ -75,17 +76,22 @@ public class MockitoAnnotationMockTest {
     @Test
     public void calculatorMockitoTest(){
         // zdefiniowanie atrapy Calculator
-
+        Calculator calc = mock(Calculator.class);
         // atrapa calculatora wyswietala 2019
         // zamokowanie metody display()
 
+        when(calc.display()).thenReturn("2018");
+
         // wywolujemy i wyswietlamy sout display
+        System.out.println(calc.display());
+        //-----------------------------------------
 
         // weryfikacja czy metoda display()
         // wykonana została tylko raz - użycie times(int number)
-
+        verify(calc, times(1)).display();
         // weryfikacja czy metoda pressNumber(null)
         // nigdy nie została wykonana - użycie never()
+        verify(calc, never()).pressNumber(null);
     }
 
 }
