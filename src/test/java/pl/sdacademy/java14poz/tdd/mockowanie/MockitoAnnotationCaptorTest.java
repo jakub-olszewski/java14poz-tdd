@@ -3,6 +3,7 @@ package pl.sdacademy.java14poz.tdd.mockowanie;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.*;
+import pl.sdacademy.java14poz.tdd.Calculator;
 
 import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -63,14 +64,19 @@ public class MockitoAnnotationCaptorTest {
     @Test
     public void calculatorPressNumberCaptorTest(){
         // inicjalizacja mock calculator
+        Calculator calc = mock(Calculator.class);
 
         // powołanie przechwytywacza
+        ArgumentCaptor<Integer> argumentCaptor = ArgumentCaptor.forClass(Integer.class);
 
         // wykonanie metody pressNumber(2)
+        calc.pressNumber(2);
 
-        // przechwycenie powyżeszego argumentu
+        // przechwycenie powyższego argumentu
+        verify(calc).pressNumber(argumentCaptor.capture());
 
         // asercja czy pobrany argument jest równy 2
+        assertEquals(2,argumentCaptor.getValue());
 
     }
 
