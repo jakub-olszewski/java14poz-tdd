@@ -12,7 +12,7 @@ public interface Calculator {
      * Metoda wpisujaca znak na kalulatorze
      * @param number na kalkulatorze
      */
-    public void pressNumber(int number);
+    public void pressNumber(Object number);
 
     /**
      * Wyświetl zawartość kalkulatora
@@ -47,6 +47,13 @@ public interface Calculator {
      * Zerowanie wyswietlacza
      */
     void clear();
+
+    /**
+     * Metoda mnoży numberA przez numberB
+     * @param numberA pierwsza liczba
+     * @param numberB druga liczba
+     */
+    void multi(int numberA, int numberB);
 
 
     /**

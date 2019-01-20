@@ -160,4 +160,9 @@ public class CalculatorTest {
         expectedException.expectMessage(DIV_ERROR_MESSAGE);
         calc.div(100, 0);
     }
+
+    @Test
+    public void shouldHaveExceptionWhenPressNumberHaveNull(){
+        calc.pressNumber(null);
+    }
 }

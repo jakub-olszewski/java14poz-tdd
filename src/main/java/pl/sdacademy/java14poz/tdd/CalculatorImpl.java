@@ -8,11 +8,12 @@ package pl.sdacademy.java14poz.tdd;
  **/
 public class CalculatorImpl implements Calculator {
 
+    public static String DIV_ERROR_MESSAGE = "Nie dziel przez zero";
     //stan wyświetlacza
     String display;
 
     @Override
-    public void pressNumber(int number) {
+    public void pressNumber(Object number) {
         // dopisuje do stanu wyświetlacza
         StringBuilder builder = new StringBuilder();
         display = builder.append(display).append(number).toString();
@@ -45,7 +46,7 @@ public class CalculatorImpl implements Calculator {
         // implementacje zrzucanie wyjatku IllegalArgumentException
         // podczas dzielenia przez zero
         if(numberB==0){
-            throw new IllegalArgumentException("Nie dziel przez zero");
+            throw new IllegalArgumentException(DIV_ERROR_MESSAGE);
         }else
         {
             pressNumber(numberA / numberB);
